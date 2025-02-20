@@ -1,0 +1,15 @@
+<button>
+    {{ mostrarfavoritos ? "Mostrar todas" : "Mostrar favoritos"}}
+</button>
+<ul>
+    @for(fruta of frutas; track fruta.id){
+    <li>
+        <a routerLink="/producto/{{ fruta.id }}">
+            {{ fruta.nombre }} - {{ fruta.precio }}€
+        </a>
+        <button (click)="toggleFavorito(fruta.id)">
+            {{ fruta.favorita ? 'Quitar de favoritos' : 'Añadir a favoritos' }}
+        </button>
+    </li>
+    }
+</ul>
